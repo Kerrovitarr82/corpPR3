@@ -11,6 +11,6 @@ func main() {
 
 	router := transport.SetupRouter()
 	if err := router.Run(":8080"); err != nil {
-		log.Fatalf("Failed to run server: %v", err)
+		log.Fatalf("Не удалось запустить сервер: %v", err)
 	}
 }

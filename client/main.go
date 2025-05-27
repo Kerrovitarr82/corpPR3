@@ -7,10 +7,12 @@ import (
 	"mime/multipart"
 	"net/http"
 	"os"
+	"path"
 )
 
 func main() {
-	filePath := "text.txt"
+	par := "client"
+	filePath := path.Join(par, "text.txt")
 	file, err := os.Open(filePath)
 	if err != nil {
 		panic(fmt.Errorf("не удалось открыть файл: %w", err))

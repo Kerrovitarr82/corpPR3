@@ -9,7 +9,7 @@ import (
 func HandleFileUpload(c *gin.Context) {
 	file, err := c.FormFile("file")
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "No file is received"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Файл не был получен"})
 		return
 	}
 
