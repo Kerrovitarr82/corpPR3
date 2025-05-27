@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	// Открываем файл для отправки
 	filePath := "text.txt"
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -36,7 +35,7 @@ func main() {
 		panic(fmt.Errorf("ошибка закрытия writer: %w", err))
 	}
 
-	url := "http://localhost:8080/upload" // адрес вашего сервера и endpoint
+	url := "http://localhost:8080/upload"
 	req, err := http.NewRequest("POST", url, &requestBody)
 	if err != nil {
 		panic(fmt.Errorf("ошибка создания запроса: %w", err))
@@ -50,13 +49,11 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-	// Читаем ответ от сервера
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
 		panic(fmt.Errorf("ошибка чтения ответа: %w", err))
 	}
 
-	// Выводим результат анализа
 	fmt.Println("Ответ сервера:")
 	fmt.Println(string(respBody))
 }
