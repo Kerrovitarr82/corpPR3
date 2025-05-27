@@ -31,7 +31,6 @@ func ProcessFile(fileHeader *multipart.FileHeader, fileID int64) (models.Analysi
 		}
 	}()
 
-	// Сохранение оригинального файла
 	receivedName := fmt.Sprintf("received_%d_%s", fileID, originalName)
 	receivedPath := filepath.Join("uploads", receivedName)
 	outFile, err := os.Create(receivedPath)
